@@ -61,6 +61,13 @@ VOICE_CATALOG: dict[str, list[Voice]] = {
             "model": "te_IN-venkatesh-medium.onnx",
             "available": False,
         },
+        {
+            "id": "hemanth",
+            "name": "Hemanth Voice",
+            "language": "Telugu",
+            "model": "hemanth.onnx",
+            "available": False,
+        },
     ],
 }
 
