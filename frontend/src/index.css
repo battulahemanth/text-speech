@@ -1,3 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;600;700;800&display=swap');
+
+:root {
+  --text: #5b6270;
+  --text-h: #18212b;
+  --text-muted: #8a929d;
+  --bg: #f4f7f2;
+  --panel: rgba(255, 255, 255, 0.86);
+  --input: #fbfcfa;
+  --border: #d9e0d8;
+  --border-strong: #becabd;
+  --accent: #cc4b2c;
+  --accent-dark: #a83821;
+  --accent-soft: rgba(204, 75, 44, 0.16);
+  --error: #a52c2c;
+  --shadow: 0 22px 60px rgba(54, 73, 58, 0.1);
+  --sans: 'Manrope', sans-serif;
+  --heading: 'Manrope', sans-serif;
+  font: 16px/1.45 var(--sans);
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(circle at 12% 10%, rgba(211, 230, 203, 0.62), transparent 30%),
+    linear-gradient(135deg, #f4f7f2 0%, #eef4eb 100%);
+}
+
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  text-underline-offset: 3px;
+}
 :root {
   --text: #6b6375;
   --text-h: #08060d;
