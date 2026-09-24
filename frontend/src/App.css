@@ -67,10 +67,19 @@
 }
 
 .text-field textarea {
-  min-height: 190px;
+  width: 100%;
+  min-height: 260px;
   resize: vertical;
-  padding: 16px;
-  line-height: 1.5;
+  padding: 18px 20px;
+  line-height: 1.6;
+  border-width: 1.5px;
+  border-radius: 16px;
+  font-size: 1rem;
+  box-shadow: inset 0 1px 2px rgba(23, 33, 44, 0.04);
+}
+
+.text-field {
+  width: 100%;
 }
 
 .voice-field select {
