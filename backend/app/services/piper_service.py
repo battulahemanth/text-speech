@@ -59,16 +59,18 @@ class PiperService:
         self,
         segments: list[dict[str, object]],
         voice_name: str,
+        speed: float = 1.0,
     ) -> io.BytesIO:
         combined = io.BytesIO()
         output_wave = None
 
         try:
             for segment in segments:
+                segment_speed = float(segment["speed"]) * speed
                 audio = self.synthesize(
                     str(segment["text"]),
                     voice_name,
-                    speed=float(segment["speed"]),
+                    speed=segment_speed,
                 )
                 with wave.open(audio, "rb") as input_wave:
                     if output_wave is None:

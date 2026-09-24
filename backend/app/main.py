@@ -1,7 +1,11 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.routes.tts import analysis_router, router as tts_router
+from app.routes.tts import (
+    analysis_router,
+    router as tts_router,
+    transcription_router,
+)
 from app.routes.voices import router as voices_router
 
 
@@ -39,4 +43,5 @@ def health():
 
 app.include_router(tts_router)
 app.include_router(analysis_router)
+app.include_router(transcription_router)
 app.include_router(voices_router)
