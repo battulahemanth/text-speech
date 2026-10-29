@@ -320,15 +320,18 @@ function HomePage() {
           )}
 
           <label className="voice-field speed-field">
-            <span>Voice Speed</span>
-            <select
+            <span>
+              Voice Speed: <output>{voiceSpeed.toFixed(2)}x</output>
+            </span>
+            <input
+              type="range"
+              min="0.5"
+              max="1.5"
+              step="0.05"
               value={voiceSpeed}
               onChange={(event) => setVoiceSpeed(Number(event.target.value))}
-            >
-              <option value={0.5}>0.5x</option>
-              <option value={1}>1x</option>
-              <option value={1.5}>1.5x</option>
-            </select>
+              aria-label="Voice speed"
+            />
           </label>
         </div>
 

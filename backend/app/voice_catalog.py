@@ -2,8 +2,16 @@ from pathlib import Path
 from typing import TypedDict
 
 
+# =========================================================
+# VOICES DIRECTORY
+# =========================================================
+
 VOICES_DIR = Path(__file__).resolve().parents[1] / "voices"
 
+
+# =========================================================
+# VOICE TYPE
+# =========================================================
 
 class Voice(TypedDict):
     id: str
@@ -13,7 +21,16 @@ class Voice(TypedDict):
     available: bool
 
 
+# =========================================================
+# VOICE CATALOG
+# =========================================================
+
 VOICE_CATALOG: dict[str, list[Voice]] = {
+
+    # -----------------------------------------------------
+    # ENGLISH
+    # -----------------------------------------------------
+
     "english": [
         {
             "id": "en_US-lessac-medium",
@@ -30,6 +47,11 @@ VOICE_CATALOG: dict[str, list[Voice]] = {
             "available": False,
         },
     ],
+
+    # -----------------------------------------------------
+    # HINDI
+    # -----------------------------------------------------
+
     "hindi": [
         {
             "id": "hi_IN-rohan-medium",
@@ -39,6 +61,11 @@ VOICE_CATALOG: dict[str, list[Voice]] = {
             "available": False,
         },
     ],
+
+    # -----------------------------------------------------
+    # TELUGU
+    # -----------------------------------------------------
+
     "telugu": [
         {
             "id": "te_IN-maya-medium",
@@ -64,28 +91,42 @@ VOICE_CATALOG: dict[str, list[Voice]] = {
     ],
 }
 
+
+# =========================================================
+# GET VOICE CATALOG
+# =========================================================
+
 def get_voice_catalog() -> dict[str, list[Voice]]:
-    catalog = {}
+
+    catalog: dict[str, list[Voice]] = {}
 
     for language, voices in VOICE_CATALOG.items():
+
         catalog[language] = []
+
         for voice in voices:
+
+            model_path = VOICES_DIR / voice["model"]
+
             catalog[language].append(
                 {
                     **voice,
-                    "available": (VOICES_DIR / voice["model"]).exists(),
+                    "available": model_path.exists(),
                 }
             )
 
     return catalog
 
 
+# =========================================================
+# GET AVAILABLE VOICE IDS
+# =========================================================
+
 def get_available_voice_ids() -> set[str]:
+
     return {
         voice["id"]
         for voices in get_voice_catalog().values()
         for voice in voices
         if voice["available"]
     }
-
-
