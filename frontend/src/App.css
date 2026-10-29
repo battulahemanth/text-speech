@@ -87,8 +87,15 @@
   padding: 0 12px;
 }
 
+.speed-field input[type="range"] {
+  width: 100%;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
 .text-field textarea:focus,
-.voice-field select:focus {
+.voice-field select:focus,
+.speed-field input[type="range"]:focus-visible {
   outline: 3px solid var(--accent-soft);
   border-color: var(--accent);
 }
